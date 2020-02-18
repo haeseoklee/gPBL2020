@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::get('/employees', 'EmployeeController@index');
 
+Route::get('/assigns', 'AssignController@index');
+
+Route::get('/leaves', 'LeaveController@index');
