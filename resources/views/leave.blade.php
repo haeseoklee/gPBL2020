@@ -1,7 +1,17 @@
 <html>
-<head>
 
+<head>
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<style>
+table, th, td {
+  max-width:100%;
+  white-space:nowrap;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+
 
 <body>
 <h1>Leaves</h1>
@@ -66,20 +76,45 @@
         const div = document.querySelector('#result');
         const res = JSON.parse(result);
         const list = `
-            <ul>
+            <table>
+                <tr>
+                    <th> total num </th>
+                </tr> 
+
+                <tr>
+                    <td> ${res.length}</td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>employee number</th>
+                    <th>name</th>
+                    <th>gender</th>
+                    <th>last position</th>
+                    <th>period</th>
+                    <th>marital status</th>
+                    <th>reason type</th>
+                    <th>reason note</th>
+                </tr>
+                
+
                 ${res.map((leave, idx) => {
-                    return `<li>
-                            employee number: ${leave.employee_number} <br>
-                            name: ${leave.name} <br>
-                            gender: ${leave.gender} <br>
-                            last position: ${leave.last_position} <br>
-                            period: ${leave.period} <br>
-                            marital status: ${leave.marital_status} <br>
-                            reason type: ${leave.reason_type} <br>
-                            reason note: ${leave.reason_note} <br>
-                            </li>`
+                    return `<tr>
+                                <td> ${idx} </td>
+                                <td> ${leave.employee_number} </td>
+                                <td> ${leave.name} </td>
+                                <td> ${leave.gender} </td>
+                                <td> ${leave.last_position} </td>
+                                <td> ${leave.period} </td>
+                                <td> ${leave.marital_status} </td>
+                                <td> ${leave.reason_type} </td>
+                                <td> ${leave.reason_note} </td>
+                            </tr>
+                            `
                     }).join(' ')}
-            </ul>
+            </table>
         `
         div.innerHTML = list;
     }
