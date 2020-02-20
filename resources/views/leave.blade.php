@@ -20,29 +20,39 @@ table, th, td {
 
 <select id="gender">
   <option value="">-</option>
-  <option value="male">Male</option>
-  <option value="female">Female</option>
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
 </select>
+
+<label>Single/Married:</label>
+
+<select id="marital">
+  <option value="">-</option>
+  <option value="Single">Single</option>
+  <option value="Merried">Married</option>
+</select>
+
+
 
 <div id="result"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
 
-   const genderOption = document.getElementById('gender');     
-   const url = '/api/leaves';
-   let myOptions = {
-       'gender': '',
-   };
+    const genderOption = document.getElementById('gender');
+    const maritalOption = document.getElementById('marital');
+    const url = '/api/leaves';
+    let myOptions = {};
     
    
     window.onload = () => {
         genderOption.addEventListener('change', genderOptionHandler);
+        maritalOption.addEventListener('change', maritalOptionHandler);
         getDataWithOptions({'method': 'GET'}); 
     }
 
     const getDataWithOptions = ({method}) => {
-
+        console.log(myOptions);
         sendAjax({
             'url': url,
             'method': method,
@@ -51,21 +61,20 @@ table, th, td {
         });
     }
 
-   
     const genderOptionHandler = () => {
-        const option = genderOption.options[genderOption.selectedIndex].value;   
-        let value = '';
-        console.log(option);
-        if (option === ''){
-            value = ''; 
-        }else if (option === 'male'){
-            value = 'Male';
-        }else if (option === 'female'){
-            value = 'Female';
-        }
+        const value = genderOption.options[genderOption.selectedIndex].value;
         myOptions = {
             ...myOptions,
             'gender': value
+        };
+        getDataWithOptions({'method': 'POST'});
+    }
+
+    const maritalOptionHandler = () => {
+        const value = maritalOption.options[maritalOption.selectedIndex].value;   
+        myOptions = {
+            ...myOptions,
+            'marital': value
         };
         getDataWithOptions({'method': 'POST'});
     }
@@ -85,6 +94,8 @@ table, th, td {
                     <td> ${res.length}</td>
                 </tr>
             </table>
+
+            <br>
 
             <table>
                 <tr>
