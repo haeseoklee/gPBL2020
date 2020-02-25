@@ -23,6 +23,7 @@ class APIController extends Controller
     {
         $data = json_decode($request->getContent(), true);
 
+        // TODO: cross join WT table and leaves table and 
         $leaves = Leave::orderBy('employee_number', 'asc');
         
         if (isset($data['gender']) && $data['gender'] != '')
@@ -31,7 +32,7 @@ class APIController extends Controller
         }
         if (isset($data['marital']) && $data['marital'] != '')
         {
-        $leaves = $leaves->where('marital_status', 'like', '%'.$data['marital'].'%');
+            $leaves = $leaves->where('marital_status', 'like', '%'.$data['marital'].'%');
         }
         
         $leaves_json = $leaves->get()->toJson(JSON_UNESCAPED_UNICODE);
