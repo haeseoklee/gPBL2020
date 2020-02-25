@@ -14,52 +14,96 @@ table, th, td {
 
 
 <body>
+
 <h1>Leaves</h1>
 
-<label>Male/Female:</label>
+<div style="position: fixed; top: 100px; right: 16px; background-color:white">
 
-<select id="gender">
-  <option value="">-</option>
-  <option value="Male">Male</option>
-  <option value="Female">Female</option>
-</select>
+    <label>Male/Female:</label>
+    <select id="gender">
+    <option value="">-</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    </select>
 
-<label>Single/Married:</label>
+    <label>Single/Married:</label>
+    <select id="marital">
+    <option value="">-</option>
+    <option value="Single">Single</option>
+    <option value="Merried">Married</option>
+    </select>
+</div>
 
-<select id="marital">
-  <option value="">-</option>
-  <option value="Single">Single</option>
-  <option value="Merried">Married</option>
-</select>
 
 
+<div id="canvas-holder" style="width:60%; margin: auto; text-align:center">
+    <h2>Gender</h2>
+    <canvas id="chart-area"></canvas>
+    <h2>Average Work Time</h2>
+    <canvas id="chart-area2"></canvas>
+</div>
+<br>
 
 <div id="result"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script>
 
     const genderOption = document.getElementById('gender');
     const maritalOption = document.getElementById('marital');
     let myOptions = {};
-   
-    window.onload = () => {
-        genderOption.addEventListener('change', genderOptionHandler);
-        maritalOption.addEventListener('change', maritalOptionHandler);
-        // getAverageWTData({
-        //     'method': 'GET',
-        //     'data': {}
-        // });
-        getDataWithOptions({'method': 'GET', 'myOptions': {}}); 
+    let genderConfig = {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [],
+                backgroundColor: [
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 99, 132)',
+                ],
+                label: 'Average Work Time'
+            }],
+            labels: [
+                'Male',
+                'Female',
+            ]
+        },
+        options: {
+            responsive: true
+        }
+    }
+    let averageWTConfig = {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                ],
+                label: 'Average Work Time'
+            }],
+            labels: [
+                '10 hours',
+                '9 hours',
+                '8 hours',
+                '7 hours',
+                '6 hours or less'
+            ]
+        },
+        options: {
+            responsive: true
+        }
     }
 
-    const getAverageWTData = ({method, myOptions}) => {
-        sendAjax({
-            'url': '/api/leaves/average_wt',
-            'method': method,
-            'data': myOptions,
-            'fn': showLeavesWithAverageWT
-        })
+    window.onload = () => {
+
+        genderOption.addEventListener('change', genderOptionHandler);
+        maritalOption.addEventListener('change', maritalOptionHandler);
+        getDataWithOptions({'method': 'GET', 'myOptions': {}}); 
     }
 
     const getDataWithOptions = ({method, myOptions}) => {
@@ -89,11 +133,6 @@ table, th, td {
         };
         getDataWithOptions({'method': 'POST', 'myOptions': myOptions});
     }
-
-
-    const showLeavesWithAverageWT = () => {
-
-    }
   
     const showLeaves = (result) => {
          
@@ -118,7 +157,7 @@ table, th, td {
                     <th>employee number</th>
                     <th>name</th>
                     <th>gender</th>
-                    <th>average working time</th>
+                    <th>average work time</th>
                     <th>last position</th>
                     <th>period</th>
                     <th>marital status</th>
@@ -145,10 +184,44 @@ table, th, td {
             </table>
         `
         div.innerHTML = list;
+        drawGenderPieChart(res);
+        drawAverageWTPieChart(res);
     }
 
+    const drawGenderPieChart = (res) => {
+        const male = res.filter((leave, idx) => leave.gender.includes('Male')).length;
+        const female = res.filter((leave, idx) => leave.gender.includes('Female')).length;
+        const ctx = document.getElementById('chart-area').getContext('2d');
+        genderConfig.data.datasets[0].data = [male, female];
+        if (!window.genderPie){
+            window.genderPie = new Chart(
+                ctx, 
+                genderConfig
+            );
+        }else{
+            window.genderPie.update();
+        }
+    }
 
-   const sendAjax = ({url, method, data, fn}) => {
+    const drawAverageWTPieChart = (res) => {
+        const ten = res.filter((leave, idx) => +leave.average_worktime.split(':')[0] == 10).length;
+        const nine = res.filter((leave, idx) => +leave.average_worktime.split(':')[0] == 9).length;
+        const eight = res.filter((leave, idx) => +leave.average_worktime.split(':')[0] == 8).length;
+        const seven = res.filter((leave, idx) => +leave.average_worktime.split(':')[0] == 7).length;
+        const sixOrLess = res.filter((leave, idx) => +leave.average_worktime.split(':')[0] <= 6).length;
+        const ctx = document.getElementById('chart-area2').getContext('2d');
+        averageWTConfig.data.datasets[0].data = [ten, nine, eight, seven, sixOrLess];
+        if (!window.avwtPie){
+            window.avwtPie = new Chart(
+                ctx, 
+                averageWTConfig
+            );
+        }else{
+            window.avwtPie.update();
+        }
+    }
+
+    const sendAjax = ({url, method, data, fn}) => {
       const dat =  JSON.stringify(data);
       const xhr = new XMLHttpRequest();
       xhr.open(method, url);
@@ -161,6 +234,7 @@ table, th, td {
         fn(result);
       });
    }
-    </script>
+
+</script>
 </body>
 </html>
