@@ -41,20 +41,31 @@ table, th, td {
 
     const genderOption = document.getElementById('gender');
     const maritalOption = document.getElementById('marital');
-    const url = '/api/leaves';
     let myOptions = {};
-    
    
     window.onload = () => {
         genderOption.addEventListener('change', genderOptionHandler);
         maritalOption.addEventListener('change', maritalOptionHandler);
-        getDataWithOptions({'method': 'GET'}); 
+        // getAverageWTData({
+        //     'method': 'GET',
+        //     'data': {}
+        // });
+        getDataWithOptions({'method': 'GET', 'myOptions': {}}); 
     }
 
-    const getDataWithOptions = ({method}) => {
+    const getAverageWTData = ({method, myOptions}) => {
+        sendAjax({
+            'url': '/api/leaves/average_wt',
+            'method': method,
+            'data': myOptions,
+            'fn': showLeavesWithAverageWT
+        })
+    }
+
+    const getDataWithOptions = ({method, myOptions}) => {
         console.log(myOptions);
         sendAjax({
-            'url': url,
+            'url': '/api/leaves',
             'method': method,
             'data': myOptions,
             'fn': showLeaves
@@ -67,7 +78,7 @@ table, th, td {
             ...myOptions,
             'gender': value
         };
-        getDataWithOptions({'method': 'POST'});
+        getDataWithOptions({'method': 'POST', 'myOptions': myOptions});
     }
 
     const maritalOptionHandler = () => {
@@ -76,9 +87,13 @@ table, th, td {
             ...myOptions,
             'marital': value
         };
-        getDataWithOptions({'method': 'POST'});
+        getDataWithOptions({'method': 'POST', 'myOptions': myOptions});
     }
 
+
+    const showLeavesWithAverageWT = () => {
+
+    }
   
     const showLeaves = (result) => {
          
@@ -103,6 +118,7 @@ table, th, td {
                     <th>employee number</th>
                     <th>name</th>
                     <th>gender</th>
+                    <th>average working time</th>
                     <th>last position</th>
                     <th>period</th>
                     <th>marital status</th>
@@ -117,6 +133,7 @@ table, th, td {
                                 <td> ${leave.employee_number} </td>
                                 <td> ${leave.name} </td>
                                 <td> ${leave.gender} </td>
+                                <td> ${leave.average_worktime} </td>
                                 <td> ${leave.last_position} </td>
                                 <td> ${leave.period} </td>
                                 <td> ${leave.marital_status} </td>

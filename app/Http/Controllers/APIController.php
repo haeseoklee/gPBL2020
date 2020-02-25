@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Leave;
 use App\Models\Assign;
@@ -12,7 +13,11 @@ class APIController extends Controller
     //
     public function index()
     {
-        $leaves = Leave::orderBy('employee_number', 'asc')->get();
+        $leaves = DB::table('leaves')
+            ->join('averwt', 'averwt.employee_number', '=', 'leaves.employee_number')
+            ->orderBy('leaves.employee_number', 'asc')
+            ->distinct()
+            ->get();
 
         $leaves_json = $leaves->toJson(JSON_UNESCAPED_UNICODE);
         
@@ -23,8 +28,10 @@ class APIController extends Controller
     {
         $data = json_decode($request->getContent(), true);
 
-        // TODO: cross join WT table and leaves table and 
-        $leaves = Leave::orderBy('employee_number', 'asc');
+        $leaves = DB::table('leaves')
+            ->join('averwt', 'averwt.employee_number', '=', 'leaves.employee_number')
+            ->distinct()
+            ->orderBy('leaves.employee_number', 'asc');
         
         if (isset($data['gender']) && $data['gender'] != '')
         {
