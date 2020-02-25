@@ -15,6 +15,7 @@ class APIController extends Controller
     {
         $leaves = DB::table('leaves')
             ->join('averwt', 'averwt.employee_number', '=', 'leaves.employee_number')
+            ->leftJoin('employees', 'employees.employee_number', '=', 'leaves.employee_number')
             ->orderBy('leaves.employee_number', 'asc')
             ->distinct()
             ->get();
@@ -30,6 +31,7 @@ class APIController extends Controller
 
         $leaves = DB::table('leaves')
             ->join('averwt', 'averwt.employee_number', '=', 'leaves.employee_number')
+            ->leftJoin('employees', 'employees.employee_number', '=', 'leaves.employee_number')
             ->distinct()
             ->orderBy('leaves.employee_number', 'asc');
         

@@ -18,7 +18,6 @@ table, th, td {
 <h1>Leaves</h1>
 
 <div style="position: fixed; top: 100px; right: 16px; background-color:white">
-
     <label>Male/Female:</label>
     <select id="gender">
     <option value="">-</option>
@@ -41,6 +40,8 @@ table, th, td {
     <canvas id="chart-area"></canvas>
     <h2>Average Work Time</h2>
     <canvas id="chart-area2"></canvas>
+    <h2>Age</h2>
+    <canvas id="chart-area3"></canvas>
 </div>
 <br>
 
@@ -96,6 +97,28 @@ table, th, td {
         },
         options: {
             responsive: true
+        }
+    }
+
+    let ageConfig = {
+        type: 'bar',
+        data: {
+            labels: ['20 ↓', '20-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50 ↑'],
+			datasets: [{
+				label: 'the number of people',
+				backgroundColor: 'rgb(75, 192, 192)',
+				borderColor: 'rgb(75, 192, 192)',
+				borderWidth: 1,
+				data: []
+			}]
+        },
+        responsive: true,
+        legend: {
+            position: 'top',
+        },
+        title: {
+            display: true,
+            text: 'Age Bar Chart'
         }
     }
 
@@ -157,6 +180,7 @@ table, th, td {
                     <th>employee number</th>
                     <th>name</th>
                     <th>gender</th>
+                    <th>birthday</th>
                     <th>average work time</th>
                     <th>last position</th>
                     <th>period</th>
@@ -172,6 +196,7 @@ table, th, td {
                                 <td> ${leave.employee_number} </td>
                                 <td> ${leave.name} </td>
                                 <td> ${leave.gender} </td>
+                                <td> ${leave.birthday} </td>
                                 <td> ${leave.average_worktime} </td>
                                 <td> ${leave.last_position} </td>
                                 <td> ${leave.period} </td>
@@ -186,6 +211,7 @@ table, th, td {
         div.innerHTML = list;
         drawGenderPieChart(res);
         drawAverageWTPieChart(res);
+        drawAgeBarChart(res);
     }
 
     const drawGenderPieChart = (res) => {
@@ -218,6 +244,40 @@ table, th, td {
             );
         }else{
             window.avwtPie.update();
+        }
+    }
+
+    const drawAgeBarChart = (res) => {
+        ageData = {
+            section1: 0,
+            section2: 0,
+            section3: 0,
+            section4: 0,
+            section5: 0,
+            section6: 0,
+            section7: 0,
+            section8: 0,
+        }
+        res.forEach((val, idx) => {
+            if (val.birthday){
+                const age = 2020 - Number(val.birthday.split('-')[0]);
+                if (age < 20) ageData.section1 += 1
+                else if (20 <= age && age <= 24 ) ageData.section2 += 1
+                else if (25 <= age && age <= 29 ) ageData.section3 += 1
+                else if (30 <= age && age <= 34 ) ageData.section4 += 1
+                else if (35 <= age && age <= 39 ) ageData.section5 += 1
+                else if (40 <= age && age <= 44 ) ageData.section6 += 1
+                else if (45 <= age && age <= 50 ) ageData.section7 += 1
+                else ageData.section8 += 1
+            }
+        })
+        const ctx = document.getElementById('chart-area3').getContext('2d');
+        ageConfig.data.datasets[0].data = Object.values(ageData);
+        console.log(ageData);
+        if (!window.ageBarChart){
+            window.ageBarChart = new Chart(ctx, ageConfig);
+        } else {
+            window.ageBarChart.update();
         }
     }
 
