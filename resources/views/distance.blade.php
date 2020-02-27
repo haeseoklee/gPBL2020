@@ -3,6 +3,7 @@
 ​
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <title>Directions Service</title>
     <style>
@@ -28,25 +29,23 @@
     <div id="map"></div>
     <button type="button" onclick="calculateAndDisplayRoute();">Search</button>
     <div id="msg">Hey</div>
-    
+   
     <script>
         const outputElement = document.getElementById('output_csv');
-        let　response;
-​
         function getCsvData(dataPath, callbackfn) {
-            const request = new XMLHttpRequest();
-            request.addEventListener('load', (event) => {
-                response = event.target.responseText;
+            const xhr = new XMLHttpRequest();
+            
+            xhr.addEventListener('load', (event) => {
+                const response = xhr.responseText;
                 filteredData = response.match(/"[^"]*"/g);
-                // console.log(filteredData)
+                console.log(filteredData)
                 callbackfn(filteredData);
             });
-            request.open('GET', dataPath, true);
-            request.send();
+            xhr.open('GET', dataPath, true);
+            xhr.setRequestHeader('Content-Type', 'text/csv');
+            xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector("meta[name='csrf-token']").getAttribute("content"));
+            xhr.send();
         }
-        
-        
-​
         function initMap() {
             var directionsService = new google.maps.DirectionsService();
             var directionsRenderer = new google.maps.DirectionsRenderer();
@@ -55,20 +54,17 @@
                 center: { lat: 21.028880000000072, lng: 105.85464000000007 }
             });
             directionsRenderer.setMap(map);
-            
-            getCsvData('./distance.csv', function (res) {
+            getCsvData('../csv/distance.csv', function (filteredData) {
                 const array = [];
-                res.forEach(function(home, idx) {
-                    array.push(new Promise( function (resolve, reject) {
-                        calculateAndDisplayRoute(directionsService, directionsRenderer, home);
-                    }));
+                filteredData.forEach(function(home, idx) {
+                    console.log(home);
+                    // array.push(new Promise( function (resolve, reject) {
+                    //     resolve(calculateAndDisplayRoute(directionsService, directionsRenderer, home));
+                    // }));
                 });
-                Promise.all(array);
+                // Promise.all(array);
             });
-​
-            
         }
-​
         function calculateAndDisplayRoute(directionsService, directionsRenderer, home) {
             directionsService.route(
                 {
@@ -84,20 +80,16 @@
                     if (status === 'OK') {
                         directionsRenderer.setDirections(response);
                         var directionsData = response.routes[0].legs[0];
-                        document.getElementById('msg').innerHTML = "";
                         document.getElementById('msg').innerHTML += " Driving distance is " + directionsData.distance.text + " (" + directionsData.duration.text + ").";
-                        console.log(" Driving distance is " + directionsData.distance.text + " (" + directionsData.duration.text + ").");
+                        // console.log(" Driving distance is " + directionsData.distance.text + " (" + directionsData.duration.text + ").");
                     } else {
                         window.alert('Directions request failed due to ' + status);
                     }
                 });
         }
-​
-        
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9rh4FmeVK_QlU02QOWlSsciYp1AuvA00&callback=initMap">
     </script>
 </body>
-​
 </html>
