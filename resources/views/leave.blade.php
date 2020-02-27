@@ -38,10 +38,13 @@ table, th, td {
 <div id="canvas-holder" style="width:60%; margin: auto; text-align:center">
     <h2>Gender</h2>
     <canvas id="chart-area"></canvas>
+    <br>
     <h2>Average Work Time</h2>
     <canvas id="chart-area2"></canvas>
+    <br>
     <h2>Age</h2>
     <canvas id="chart-area3"></canvas>
+    <br>
 </div>
 <br>
 
@@ -62,7 +65,7 @@ table, th, td {
                     'rgb(54, 162, 235)',
                     'rgb(255, 99, 132)',
                 ],
-                label: 'Average Work Time'
+                label: 'Gender'
             }],
             labels: [
                 'Male',
@@ -118,7 +121,7 @@ table, th, td {
         },
         title: {
             display: true,
-            text: 'Age Bar Chart'
+            text: 'Age'
         }
     }
 
@@ -130,7 +133,6 @@ table, th, td {
     }
 
     const getDataWithOptions = ({method, myOptions}) => {
-        console.log(myOptions);
         sendAjax({
             'url': '/api/leaves',
             'method': method,
@@ -220,17 +222,14 @@ table, th, td {
         const ctx = document.getElementById('chart-area').getContext('2d');
         genderConfig.data.datasets[0].data = [male, female];
         if (!window.genderPie){
-            window.genderPie = new Chart(
-                ctx, 
-                genderConfig
-            );
+            window.genderPie = new Chart(ctx, genderConfig);
         }else{
             window.genderPie.update();
         }
     }
 
     const drawAverageWTPieChart = (res) => {
-        const ten = res.filter((leave, idx) => +leave.average_worktime.split(':')[0] == 10).length;
+        const ten = res.filter((leave, idx) => +leave.average_worktime.split(':')[0] >= 10).length;
         const nine = res.filter((leave, idx) => +leave.average_worktime.split(':')[0] == 9).length;
         const eight = res.filter((leave, idx) => +leave.average_worktime.split(':')[0] == 8).length;
         const seven = res.filter((leave, idx) => +leave.average_worktime.split(':')[0] == 7).length;
@@ -238,10 +237,7 @@ table, th, td {
         const ctx = document.getElementById('chart-area2').getContext('2d');
         averageWTConfig.data.datasets[0].data = [ten, nine, eight, seven, sixOrLess];
         if (!window.avwtPie){
-            window.avwtPie = new Chart(
-                ctx, 
-                averageWTConfig
-            );
+            window.avwtPie = new Chart(ctx, averageWTConfig);
         }else{
             window.avwtPie.update();
         }
@@ -273,7 +269,6 @@ table, th, td {
         })
         const ctx = document.getElementById('chart-area3').getContext('2d');
         ageConfig.data.datasets[0].data = Object.values(ageData);
-        console.log(ageData);
         if (!window.ageBarChart){
             window.ageBarChart = new Chart(ctx, ageConfig);
         } else {
