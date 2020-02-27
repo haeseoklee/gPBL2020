@@ -25,6 +25,8 @@ Route::get('/leaves', 'LeaveController@index');
 
 Route::get('/distance', 'GoogleMapController@index');
 
+Route::get('/distance/address', 'GoogleMapController@address');
+
 Route::get('/api/leaves', 'APIController@index');
 
 Route::post('/api/leaves', 'APIController@filter');

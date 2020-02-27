@@ -28,24 +28,14 @@
     <div id="output_csv"></div>
     <div id="map"></div>
     <button type="button" onclick="calculateAndDisplayRoute();">Search</button>
-    <div id="msg">Hey</div>
+    <div id="msg"></div>
    
     <script>
         const outputElement = document.getElementById('output_csv');
-        function getCsvData(dataPath, callbackfn) {
-            const xhr = new XMLHttpRequest();
-            
-            xhr.addEventListener('load', (event) => {
-                const response = xhr.responseText;
-                filteredData = response.match(/"[^"]*"/g);
-                console.log(filteredData)
-                callbackfn(filteredData);
-            });
-            xhr.open('GET', dataPath, true);
-            xhr.setRequestHeader('Content-Type', 'text/csv');
-            xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector("meta[name='csrf-token']").getAttribute("content"));
-            xhr.send();
-        }
+        let result = {
+            calc_result: []
+        };
+        
         function initMap() {
             var directionsService = new google.maps.DirectionsService();
             var directionsRenderer = new google.maps.DirectionsRenderer();
@@ -54,22 +44,30 @@
                 center: { lat: 21.028880000000072, lng: 105.85464000000007 }
             });
             directionsRenderer.setMap(map);
-            getCsvData('../csv/distance.csv', function (filteredData) {
-                const array = [];
-                filteredData.forEach(function(home, idx) {
-                    console.log(home);
-                    // array.push(new Promise( function (resolve, reject) {
-                    //     resolve(calculateAndDisplayRoute(directionsService, directionsRenderer, home));
-                    // }));
-                });
-                // Promise.all(array);
-            });
+            sendAjax({
+                url: '/distance/address',
+                method: 'GET',
+                data: {},
+                fn: (res) => {
+                        const array = [];
+                        let time = 0;
+                        res.forEach((data, idx) => {
+                            array.push(new Promise( (resolve, reject) => {
+                                setTimeout(() => calculateAndDisplayRoute(directionsService, directionsRenderer, data, idx), time + idx*2000);
+                            }));
+                        });
+                        Promise.all(array).then(() => {console.log(result)});
+                    }
+            })
+            
+            
         }
-        function calculateAndDisplayRoute(directionsService, directionsRenderer, home) {
+        
+        function calculateAndDisplayRoute(directionsService, directionsRenderer, data, idx) {
             directionsService.route(
                 {
                     origin: {
-                        query: home
+                        query: data['address']
                     },
                     destination: {
                         query: "3D Vietnam Creative Center Building, 3 Duy Tan Street, Cau Giay District, Hanoi, Vietnam"
@@ -80,16 +78,48 @@
                     if (status === 'OK') {
                         directionsRenderer.setDirections(response);
                         var directionsData = response.routes[0].legs[0];
-                        document.getElementById('msg').innerHTML += " Driving distance is " + directionsData.distance.text + " (" + directionsData.duration.text + ").";
-                        // console.log(" Driving distance is " + directionsData.distance.text + " (" + directionsData.duration.text + ").");
+                        const str  = `
+                        {
+                            'employee_number': ${data['employee_number']},
+                            'distance': '${directionsData.distance.text}',
+                            'duration': '${directionsData.duration.text}'
+                        },
+                        <br>
+                        `;
+                        document.getElementById('msg').innerHTML += str;
+                        console.log(idx + ' ' + str);
+                        result['calc_result'].push( {
+                            'employee_number': data['employee_number'],
+                            'distance': directionsData.distance.text,
+                            'duration': directionsData.duration.text
+                        });
                     } else {
-                        window.alert('Directions request failed due to ' + status);
+                        result['calc_result'].push( {
+                            'employee_number': data['employee_number'],
+                            'distance': 'None',
+                            'duration': 'None'
+                        });
                     }
-                });
+                }
+            );
+        }
+
+        const sendAjax = ({url, method, data, fn}) => {
+            const dat =  JSON.stringify(data);
+            const xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector("meta[name='csrf-token']").getAttribute("content"));
+            xhr.send(dat);
+
+            xhr.addEventListener('load', () => {
+                const result = JSON.parse(xhr.responseText);
+                fn(result);
+            });
         }
     </script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9rh4FmeVK_QlU02QOWlSsciYp1AuvA00&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9rh4FmeVK_QlU02QOWlSsciYp1AuvA00&language=en&callback=initMap">
     </script>
 </body>
 </html>
