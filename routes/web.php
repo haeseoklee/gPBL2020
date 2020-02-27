@@ -23,6 +23,8 @@ Route::get('/assigns', 'AssignController@index');
 
 Route::get('/leaves', 'LeaveController@index');
 
+Route::get('/distance', 'GoogleMapController@index');
+
 Route::get('/api/leaves', 'APIController@index');
 
 Route::post('/api/leaves', 'APIController@filter');

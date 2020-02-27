@@ -9,7 +9,7 @@
 
 <div id="canvas-holder" style="width:60%; margin: auto; text-align:center">
     
-    <h2>Average Work Time (both)</h2>
+    <h2>Average Work Time</h2>
     <canvas id="1"></canvas>
     <h2>Average Work Time (leaves)</h2>
     <canvas id="2"></canvas>
