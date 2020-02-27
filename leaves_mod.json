@@ -1,0 +1,1374 @@
+[
+    {
+        "employee_number": 6700,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6711,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6613,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6691,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6585,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6426,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6259,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 6646,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6606,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6453,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6543,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6535,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6689,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 6748,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6637,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6595,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6297,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6587,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 6652,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6615,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6551,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6425,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8230,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6743,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6412,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8184,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6623,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6722,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6662,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6497,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6685,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6659,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6783,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6719,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6620,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6763,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6658,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6548,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6745,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6693,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6616,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6579,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8232,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6718,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6330,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8662,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8202,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8231,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6489,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6737,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6723,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6706,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8254,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6760,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8664,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6775,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8675,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8674,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6552,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6688,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6747,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6734,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8725,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6625,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6771,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6647,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6526,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8264,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6823,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8265,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6511,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6794,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6837,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8259,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6565,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6733,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8746,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8756,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8755,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6847,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6676,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6331,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6538,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6884,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6730,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6494,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6316,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6840,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6833,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6731,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 6681,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6828,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6776,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6853,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6887,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6767,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6835,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6244,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6789,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6387,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6575,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8309,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6409,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6242,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6282,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6698,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6440,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 6825,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6541,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 6229,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 6811,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6556,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6880,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6627,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6772,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6839,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6838,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6842,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6159,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6265,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6431,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6796,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6707,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8762,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8771,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8788,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8328,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8329,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8330,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8307,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8773,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6577,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6779,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6941,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8182,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6885,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6829,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6803,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6800,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6682,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6720,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6888,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6812,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6701,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6554,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8280,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6728,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6792,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6930,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6590,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8185,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6778,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6674,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6428,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6746,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6589,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6315,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6113,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6634,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6191,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6906,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6820,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6261,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6643,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6798,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6231,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6226,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6832,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6827,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6826,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6793,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6699,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6557,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6944,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6584,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6894,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6850,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8371,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6264,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6970,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6639,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6715,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6795,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6836,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6846,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6919,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6970,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8360,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 8374,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6267,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6306,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6504,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6744,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6809,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6834,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6856,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6864,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6907,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6936,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6963,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8394,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6263,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6583,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6593,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6609,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6617,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6686,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6717,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6724,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 6736,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6748,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6770,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6875,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6947,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6954,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6967,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6985,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8387,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8389,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8791,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8825,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 6592,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6787,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6802,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 6815,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6900,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6921,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6933,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6945,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 7003,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 7012,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6438,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6462,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6566,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6580,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6588,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6703,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6726,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6781,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6788,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6806,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6886,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6913,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 7009,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 7016,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8397,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6417,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6525,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6531,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6607,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6661,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6713,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6818,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6953,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6957,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6980,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 7034,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 7060,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8819,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8830,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6181,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6460,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6515,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6668,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6757,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6807,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6845,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6903,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6992,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 7041,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 7072,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 8400,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8405,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8407,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8411,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8412,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6401,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6605,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6739,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6741,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6785,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 6791,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6804,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6928,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6997,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8377,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8409,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8416,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 8422,
+        "reason_group": "Edu"
+    },
+    {
+        "employee_number": 8828,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8833,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 8834,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8836,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6189,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6567,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6878,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6898,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6937,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6950,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6952,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6987,
+        "reason_group": "O"
+    },
+    {
+        "employee_number": 6988,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 7015,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 7056,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 7081,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8401,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8402,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8419,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8818,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6161,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 6372,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6456,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6600,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6636,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6645,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6651,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6670,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6756,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6848,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6915,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6917,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6920,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 7050,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 7111,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8838,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6817,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6956,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 6966,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 7054,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8421,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8423,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8435,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8437,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8835,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8843,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8844,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8845,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8846,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 6738,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 7108,
+        "reason_group": "CWE/CP"
+    },
+    {
+        "employee_number": 8430,
+        "reason_group": "CW"
+    },
+    {
+        "employee_number": 8432,
+        "reason_group": "PI"
+    },
+    {
+        "employee_number": 8434,
+        "reason_group": "PI"
+    }
+]]
