@@ -21,8 +21,8 @@ class APIController extends Controller
             ->get();
 
         $leaves_json = $leaves->toJson(JSON_UNESCAPED_UNICODE);
-        
-        return response()->json($leaves_json);
+        $reasons = file_get_contents(base_path('resources/json/leaves_mod.json'));
+        return response()->json(['leaves' => $leaves_json, 'reasons' => $reasons]);
     }
  
     public function filter(Request $request)
@@ -45,8 +45,8 @@ class APIController extends Controller
         }
         
         $leaves_json = $leaves->get()->toJson(JSON_UNESCAPED_UNICODE);
-        
-        return response()->json($leaves_json);
+        $reasons = file_get_contents(base_path('resources/json/leaves_mod.json'));
+        return response()->json(['leaves' => $leaves_json, 'reasons' => $reasons]);
     
     }
 

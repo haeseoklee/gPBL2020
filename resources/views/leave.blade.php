@@ -2,6 +2,7 @@
 
 <head>
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<title>Leaves</title>
 <style>
 table, th, td {
   max-width:100%;
@@ -9,15 +10,14 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
+canvas {
+    padding: 30px 10px;
+}
 </style>
 </head>
-
-
 <body>
 
-<h1>Leaves</h1>
-
-<div style="position: fixed; top: 100px; right: 16px; background-color:white">
+<div style="position: fixed; top: 50px; right: 16px; background-color:white">
     <label>Male/Female:</label>
     <select id="gender">
     <option value="">-</option>
@@ -33,18 +33,14 @@ table, th, td {
     </select>
 </div>
 
-
+<div style="width:90%; margin: auto; text-align:center">
+    <canvas id="scatter"></canvas>
+</div>
 
 <div id="canvas-holder" style="width:60%; margin: auto; text-align:center">
-    <h2>Gender</h2>
     <canvas id="chart-area"></canvas>
-    <br>
-    <h2>Average Work Time</h2>
     <canvas id="chart-area2"></canvas>
-    <br>
-    <h2>Age</h2>
     <canvas id="chart-area3"></canvas>
-    <br>
 </div>
 <br>
 
@@ -56,6 +52,37 @@ table, th, td {
     const genderOption = document.getElementById('gender');
     const maritalOption = document.getElementById('marital');
     let myOptions = {};
+    let scatterConfig = {
+        data: {
+            datasets: []
+        },
+        options: {
+            borderWidth: 3,
+            title: {
+                display: true,
+                text: 'Age & Worktime & Reason',
+                fontSize: 30,
+            },
+            scales: {
+                xAxes: [{
+                    position: 'bottom',
+                    scaleLabel: {
+                        fontSize: 15,
+                        labelString: 'Average Work Time',
+                        display: true,
+                    }
+                }],
+                yAxes: [{
+                    type: 'linear',
+                    scaleLabel: {
+                        fontSize: 15,
+                        labelString: 'Age',
+                        display: true
+                    }
+                }]
+            }
+        }
+    }
     let genderConfig = {
         type: 'pie',
         data: {
@@ -73,6 +100,11 @@ table, th, td {
             ]
         },
         options: {
+            title: {
+                display: true,
+                text: 'Gender',
+                fontSize: 30,
+            },
             responsive: true
         }
     }
@@ -99,6 +131,11 @@ table, th, td {
             ]
         },
         options: {
+            title: {
+                display: true,
+                text: 'Average Work Time',
+                fontSize: 30,
+            },
             responsive: true
         }
     }
@@ -115,13 +152,16 @@ table, th, td {
 				data: []
 			}]
         },
-        responsive: true,
-        legend: {
-            position: 'top',
-        },
-        title: {
-            display: true,
-            text: 'Age'
+        options: {
+            responsive: true,
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Age',
+                fontSize: 30,
+            }
         }
     }
 
@@ -158,11 +198,41 @@ table, th, td {
         };
         getDataWithOptions({'method': 'POST', 'myOptions': myOptions});
     }
+
+    const calcTime = (val) => {
+        const [hour, min, sec] = val.split(':');
+        const time = parseFloat(`${hour}.${ +min >= 30 ? 5 : 0 }`);
+        return time
+    }
+
+    const mergeData = (res, res2) => {
+        const res3 = []
+        res.forEach((val, idx) => {
+            if (val !== null){
+                res3[val['employee_number']] = {
+                    "employee_number" : val['employee_number'],
+                    "age": val['birthday'] ? 2020 - Number(val['birthday'].split('-')[0]) : 25,
+                    "average_worktime": val['average_worktime'] ? calcTime(val['average_worktime']) : 7
+                };
+            }
+        })
+        res2.forEach((val, idx) => {
+            if (val !== null){
+                res3[val['employee_number']] = {
+                    ...res3[val['employee_number']],
+                    "reason_group" : val['reason_group'] ? val['reason_group'] : '0'
+                }
+            }
+        })
+        return res3
+    }
   
     const showLeaves = (result) => {
-         
         const div = document.querySelector('#result');
-        const res = JSON.parse(result);
+        const res = JSON.parse(result['leaves']);
+        const res2 = JSON.parse(result['reasons']);
+        const res3 = mergeData(res, res2);
+
         const list = `
             <table>
                 <tr>
@@ -211,9 +281,103 @@ table, th, td {
             </table>
         `
         div.innerHTML = list;
+        drawScatter(res3);
         drawGenderPieChart(res);
         drawAverageWTPieChart(res);
         drawAgeBarChart(res);
+    }
+
+    const drawScatter = (res) => {
+        
+        const ctx = document.getElementById('scatter').getContext('2d');
+        const group0 = res.filter((val, idx) => val['reason_group'] == 'O');
+        const group1 = res.filter((val, idx) => val['reason_group'] == 'CWE/CP');
+        const group2 = res.filter((val, idx) => val['reason_group'] == 'PI');
+        const group3 = res.filter((val, idx) => val['reason_group'] == 'Edu');
+        const group4 = res.filter((val, idx) => val['reason_group'] == 'CW');
+
+        const group0Dataset = {
+            radius: 8,
+            hoverRadius: 40,
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgb(75, 192, 192)',
+            label: 'Others',
+            data: []
+        }
+        const group1Dataset = {
+            radius: 8,
+            hoverRadius: 40,
+            borderColor: 'rgb(255, 159, 64)',
+            backgroundColor: 'rgb(255, 159, 64)',
+            label: 'Change working environment / Career Path',
+            data: []
+        }
+        const group2Dataset = {
+            radius: 8,
+            hoverRadius: 40,
+            borderColor: 'rgb(255, 205, 86)',
+            backgroundColor: 'rgb(255, 205, 86)',
+            label: 'Personal issues',
+            data: []
+        }
+        const group3Dataset = {
+            radius: 8,
+            hoverRadius: 40,
+            borderColor: 'rgb(153, 102, 255)',
+            backgroundColor: 'rgb(153, 102, 255)',
+            label: 'Education',
+            data: []
+        }
+        const group4Dataset = {
+            radius: 8,
+            hoverRadius: 40,
+            borderColor: 'rgb(54, 162, 235)',
+            backgroundColor: 'rgb(54, 162, 235)',
+            label: 'Reason from Cowell Asia',
+            data: []
+        }
+        group0.forEach((val, idx) => {
+            group0Dataset.data.push({
+                x: val['average_worktime'],
+                y: val['age']
+            });
+        })
+        group1.forEach((val, idx) => {
+            group1Dataset.data.push({
+                x: val['average_worktime'],
+                y: val['age']
+            });
+        })
+        group2.forEach((val, idx) => {
+            group2Dataset.data.push({
+                x: val['average_worktime'],
+                y: val['age']
+            });
+        })
+        group3.forEach((val, idx) => {
+            group3Dataset.data.push({
+                x: val['average_worktime'],
+                y: val['age']
+            });
+        })
+        group4.forEach((val, idx) => {
+            group4Dataset.data.push({
+                x: val['average_worktime'],
+                y: val['age']
+            });
+        })
+        scatterConfig.data.datasets = [];
+        scatterConfig.data.datasets.push(group1Dataset);
+        scatterConfig.data.datasets.push(group2Dataset);
+        scatterConfig.data.datasets.push(group3Dataset);
+        scatterConfig.data.datasets.push(group4Dataset);
+        scatterConfig.data.datasets.push(group0Dataset);
+
+        if (!window.myScatter){
+            window.myScatter = Chart.Scatter(ctx, scatterConfig);
+        }else{
+            window.myScatter.update();
+        }
     }
 
     const drawGenderPieChart = (res) => {
