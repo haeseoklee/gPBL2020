@@ -17,7 +17,11 @@ Route::get('/', function () {
 
 Route::get('/employees', 'EmployeeController@index');
 
+Route::get('/employees/about', 'EmployeeController@about');
+
 Route::get('/employees/averwt', 'EmployeeController@averwt');
+
+Route::get('/employees/leaveAverwt', 'EmployeeController@leaveAverwt');
 
 Route::get('/assigns', 'AssignController@index');
 

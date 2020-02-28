@@ -13,11 +13,30 @@ table, th, td {
 canvas {
     padding: 30px 10px;
 }
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
 </style>
 </head>
 <body>
 
-<div style="position: fixed; top: 50px; right: 16px; background-color:white">
+<div class="topnav">
+    <a href="http://localhost:8080/employees/about">About</a>
+    <a href="http://localhost:8080/leaves">Leaves</a>
+    <a href="http://localhost:8080/employees/leaveAverwt">Average Work Time</a>
+  <!-- <a href="#averwt">Test</a> -->
+</div>
+
+<div style="position: fixed; top: 70px; right: 16px; background-color:white">
     <label>Male/Female:</label>
     <select id="gender">
     <option value="">-</option>

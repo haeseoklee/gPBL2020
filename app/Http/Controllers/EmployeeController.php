@@ -19,5 +19,15 @@ class EmployeeController extends Controller
     {
         return view('averwt', []);
     }
+
+    public function about()
+    {
+        return view('about', []);
+    }
+
+    public function leaveAverwt()
+    {
+        return view('leaveAverwt', []);
+    }
 }
 

@@ -1,0 +1,32 @@
+body{font-size:150%;
+    font-weight:bold;
+    }
+    h1{
+    font-family: "SF Pro Text";
+    letter-spacing: 5pt;
+    }
+    ul{
+      color: #1e366a;
+      border-top: solid #1e366a 1px;
+      border-bottom: solid #1e366a 1px;
+      padding: 0.5em 0 0.5em 1.5em;
+    }
+    
+    p1{
+      float: left;
+      width:50%;
+      margin-right: 30px;
+    }
+    p2{
+      float: left;
+      width: 50%;
+      margin-right: 30px;
+    }
+    /*p3{
+    float: left;
+    }
+     p4{
+      float: left;
+      width: 80%;
+    }
+    
